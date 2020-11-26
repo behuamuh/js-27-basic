@@ -6,4 +6,10 @@
 
 const min = 14;
 const max = 90;
-const age = 30;
+const age = 14;
+
+if (min <= age && age <= max) {
+  console.log('Yes');
+} else {
+  console.log('No');
+}

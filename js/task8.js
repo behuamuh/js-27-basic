@@ -5,10 +5,16 @@
 
 const a = 1;
 const b = 2;
-let result;
+// let result;
 
-if (a + b < 4) {
-  result = 'Мало';
-} else {
-  result = 'Много';
-}
+// if (a + b < 4) {
+//   result = 'Мало';
+// } else {
+//   result = 'Много';
+// }
+
+const result = (a + b < 4)
+  ? 'Мало'
+  : 'Много';
+
+console.log(result);

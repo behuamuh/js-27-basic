@@ -7,6 +7,8 @@
 const name = 'Манго';
 const age = 5;
 const hobby = 'плавать';
-const message = '';
+// const message = 'Здравствуйте, меня зовут ' + name + ', мне ' + age + ' лет и мне нравятся ' + hobby;
+
+const message = `Здравствуйте, меня зовут ${name}, мне ${age} лет и мне нравятся ${hobby}`;
 
 console.log(message);
