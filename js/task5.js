@@ -6,3 +6,53 @@
 // Пароль проверять так:
 // Если введён пароль «Я главный», то вывести строку «Здравствуйте!»
 // Иначе выводить строку «Неверный пароль»
+
+let login = prompt('Введите логин');
+
+switch(login) {
+  case 'Админ': {
+    let password = prompt('Введите пароль');
+
+    if (password === 'Я главный') {
+      console.log('Здравствуйте!');
+    } else {
+      console.log('Неверный пароль');
+    }
+
+    break;
+  }
+
+  case null: {
+    console.log('Отменено');
+    break;
+  }
+
+  default: {
+    console.log('Я вас не знаю');
+  }
+}
+
+
+// let login;
+
+// while (true) {
+//   login = prompt('Введите логин');
+
+//   if (!login) {
+//     console.log('Отменено');
+//     break;
+//   }
+
+//   if (login === 'Админ') {
+//     let password = prompt('Введите пароль');
+
+//     if (password === 'Я главный') {
+//       console.log('Здравствуйте!');
+//       break;
+//     }
+
+//     console.log('Неверный пароль');
+//   } else {
+//     console.log('Я вас не знаю');
+//   }
+// }
