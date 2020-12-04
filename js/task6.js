@@ -5,7 +5,7 @@
 // removeCourse(name) - удаляет курс из коллекции
 // updateCourse(oldName, newName)- изменяет имя на новое
 
-cost courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
+const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
 addCourse('Express'); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
 addCourse('CSS'); // 'У вас уже есть такое курс'
