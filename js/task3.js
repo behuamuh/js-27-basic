@@ -1,16 +1,13 @@
-// Пример 3 - с помощью метода split() и метода join()
-// напишите функцию capitalize(word)
-// которая принимает слово и возвращает новое слово, 
-// с 1м символом в верхнем регистре
-const lowerWord = 'hello';
+// Пример 3 - Псевдомассив arguments
+// Напишите функцию calculateAverage() 
+// которая принимает произвольное кол-во аргументов 
+// и возвращает их среднее значение. 
+// Все аругменты будут только числами.
 
-const capitalize = (word) => {
-  const letters = word.split('');
+function calculateAverage() {
 
-  letters[0] = letters[0].toUpperCase();
+}
 
-  return letters.join('');
-};
-
-console.log(lowerWord);
-console.log(capitalize(lowerWord));
+console.log(calculateAverage(1, 2, 3, 4)); // 2.5
+console.log(calculateAverage(14, 8, 2)); // 8
+console.log(calculateAverage(27, 43, 2, 8, 36)); // 23.2

@@ -1,22 +1,14 @@
-// Пример 6 - Перебор массива
-// Напиши функцию logItems(array), 
-// которая получает массив и использует цикл for, 
-// который для каждого элемента массива будет 
-// выводить в консоль сообщение в формате 
-// <номер элемента> - <значение элемента>. 
-// Нумерация элементов должна начинаться с 1.
+// Пример 6 - Коллекция курсов (includes, indexOf, push и т. д.)
+// Напишите функции для работы с коллекцией обучающих курсов courses:
 
-// Например для первого элемента массива 
-// ['Mango', 'Poly', 'Ajax'] с индексом 0 будет выведено 1 - Mango, а для индекса 2 выведет 3 - Ajax.
+// addCourse(name) - добавляет курс в конец коллекции
+// removeCourse(name) - удаляет курс из коллекции
+// updateCourse(oldName, newName)- изменяет имя на новое
 
-const items = ['Mango', 'Poly', 'Ajax'];
+cost courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
-const logItems = (arr) => {
-  for (let i = 0; i < arr.length; i++) {
-    const message = `${i + 1} - ${arr[i]}`;
-
-    console.log(message);
-  }
-};
-
-logItems(items);
+addCourse('Express'); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
+addCourse('CSS'); // 'У вас уже есть такое курс'
+removeCourse('React'); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
+removeCourse('Vue'); // 'Курс с таким имененем не найден'
+updateCourse('Express', 'NestJS'); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS']
