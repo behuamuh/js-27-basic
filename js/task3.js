@@ -5,7 +5,13 @@
 // Все аругменты будут только числами.
 
 function calculateAverage() {
+  let sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
 
+  const average = sum / arguments.length;
+  return average ;
 }
 
 console.log(calculateAverage(1, 2, 3, 4)); // 2.5

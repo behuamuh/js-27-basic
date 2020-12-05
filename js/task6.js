@@ -7,8 +7,35 @@
 
 const courses = ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL'];
 
+const addCourse = name => {
+  if (courses.includes(name)) return;
+
+  courses.push(name);
+};
+
+const removeCourse = name => {
+  const removedIndex = courses.indexOf(name);
+
+  if (removedIndex === -1) return;
+
+  courses.splice(removedIndex, 1);
+};
+
+const updateCourse = (oldName, newName) => {
+  const replacedIndex = courses.indexOf(oldName);
+
+  if (replacedIndex === -1) return;
+
+  courses.splice(replacedIndex, 1, newName);
+};
+
 addCourse('Express'); // ['HTML', 'CSS', 'JavaScript', 'React', 'PostgreSQL', 'Express']
+console.log(courses);
 addCourse('CSS'); // 'У вас уже есть такое курс'
+console.log(courses);
 removeCourse('React'); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'Express']
+console.log(courses);
 removeCourse('Vue'); // 'Курс с таким имененем не найден'
-updateCourse('Express', 'NestJS'); // ['HTML', 'CSS', 'JavaScript', 'PostgreSQL', 'NestJS']
+console.log(courses);
+updateCourse('Express', 'NestJS'); // ['HTML', 'CSSconsole.log(courses);
+console.log(courses);
