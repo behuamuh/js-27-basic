@@ -1,18 +1,10 @@
-// Пример 7 - Напишите функцию, 
-// которая считает сумму цифр в числе
-// и возвращает ее
+// Написать объект ladder - объект, 
+// который позволяет подниматься вверх и спускаться. 
+// Пример работы должен быть таким:
 
-const calcDiditsSum = number => {
-  const digits = String(number).split('');
-  let sum = 0;
-
-  for (let digit of digits) {
-    sum += Number(digit);
-  }
-
-  return sum;
-};
-
-console.log(calcDiditsSum(123)); // 6
-console.log(calcDiditsSum(258)); // 15
-console.log(calcDiditsSum(1)); // 1
+// ladder.showStep(); // 0 (выводит ступеньку на который мы находимся)
+// ladder.up(); 
+// ladder.up();
+// ladder.showStep(); // 2
+// ladder.down();
+// ladder.showStep(); // 1
