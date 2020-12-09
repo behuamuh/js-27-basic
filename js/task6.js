@@ -7,7 +7,21 @@ const menu = {
   title: 'My menu',
 };
 
-// multiplyNumeric(menu);
+console.table(menu);
+
+const multiplyNumeric = obj => {
+  const keys = Object.keys(obj);
+
+  for (const key of keys) {
+    if (typeof obj[key] !== 'number') continue;
+
+    obj[key] *= 2;
+  }
+};
+
+multiplyNumeric(menu);
+
+console.table(menu);
 
 // после вызова функции
 // menu = {

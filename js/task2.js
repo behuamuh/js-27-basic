@@ -6,8 +6,18 @@
 // Должно получиться 390. Если объект salaries пуст, 
 // то результат должен быть 0.
 
+let sum = 0;
+
 const salaries = {
-  John: 100,
-  Ann: 160,
-  Pete: 130,
+  // John: 100,
+  // Ann: 160,
+  // Pete: 130,
 };
+
+const salariesValues = Object.values(salaries);
+
+for (const salary of salariesValues) {
+  sum += salary;
+}
+
+console.log(sum);
