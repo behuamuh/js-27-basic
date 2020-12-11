@@ -5,15 +5,25 @@
 // и возвращает их среднее значение. 
 // Все аргументы будут только числами.
 
-function calculateAverage() {
+// function calculateAverage() {
+//   let sum = 0;
+//   for (let i = 0; i < arguments.length; i++) {
+//     sum += arguments[i];
+//   }
+
+//   const average = sum / arguments.length;
+//   return average ;
+// }
+
+const calculateAverage = (...args) => {
   let sum = 0;
-  for (let i = 0; i < arguments.length; i++) {
-    sum += arguments[i];
+  for (let i = 0; i < args.length; i++) {
+    sum += args[i];
   }
 
-  const average = sum / arguments.length;
+  const average = sum / args.length;
   return average ;
-}
+};
 
 console.log(calculateAverage(1, 2, 3, 4)); // 2.5
 console.log(calculateAverage(14, 8, 2)); // 8

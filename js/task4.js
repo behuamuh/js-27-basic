@@ -8,3 +8,17 @@ const user = {
   hobby: 'html',
   premium: true,
 };
+
+const userEntries = Object.entries(user);
+
+// for (const entry of userEntries) {
+//   const [key, value] = entry;
+
+//   console.log(`${key}: ${value}`);
+// }
+
+// console.log(userEntries);
+
+for (const [key, value] of userEntries) {
+  console.log(`${key}: ${value}`);
+}
