@@ -1,23 +1,20 @@
-// Пример 2 - метод Object.values()
-// У нас есть объект, 
-// в котором хранятся зарплаты нашей команды. 
-// Напишите код для суммирования всех зарплат 
-// и сохраните результат в переменной sum. 
-// Должно получиться 390. Если объект salaries пуст, 
-// то результат должен быть 0.
+// Пример 2
+// Перепешите функцию calculateAverage() 
+// на стрелочную,
+// которая принимает произвольное кол-во аргументов 
+// и возвращает их среднее значение. 
+// Все аргументы будут только числами.
 
-let sum = 0;
+function calculateAverage() {
+  let sum = 0;
+  for (let i = 0; i < arguments.length; i++) {
+    sum += arguments[i];
+  }
 
-const salaries = {
-  // John: 100,
-  // Ann: 160,
-  // Pete: 130,
-};
-
-const salariesValues = Object.values(salaries);
-
-for (const salary of salariesValues) {
-  sum += salary;
+  const average = sum / arguments.length;
+  return average ;
 }
 
-console.log(sum);
+console.log(calculateAverage(1, 2, 3, 4)); // 2.5
+console.log(calculateAverage(14, 8, 2)); // 8
+console.log(calculateAverage(27, 43, 2, 8, 36)); // 23.2
