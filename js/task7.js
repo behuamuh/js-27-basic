@@ -1,30 +1,16 @@
-// Пример 7 напишите скрипт, 
-// который поочереди спрашивает имя, возраст и зарплату
-// и выводит в консоль объект только с теми полями, 
-// которые были указаны
+// Пример 7 - Замыкания
+// Напишите функцию для хранения скидки. 
+// Функция возвращает другую функцию, 
+// которая принимает сумму покупки 
+// и возвращает финальную сумму с сохранённой скидкой.
 
-const name = prompt('Input name');
-const age = prompt('Input age');
-const salary = prompt('Input salary');
+// const withBaseDiscount = applyDiscount(0);
+// const withSilverDiscount = applyDiscount(5);
+// const withGoldDiscount = applyDiscount(10);
 
-// const user = {};
-
-// if (name) {
-//   user.name = name;
-// }
-
-// if (age) {
-//   user.age = age;
-// }
-
-// if (salary) {
-//   user.salary = salary;
-// }
-
-const user = {
-  ...(name && { name }),
-  ...(age && { age }),
-  ...(salary && { salary }),
-};
-
-console.log(user);
+// console.log(withBaseDiscount(100));
+// console.log(withBaseDiscount(200));
+// console.log(withSilverDiscount(100));
+// console.log(withSilverDiscount(200));
+// console.log(withGoldDiscount(100));
+// console.log(withGoldDiscount(200));

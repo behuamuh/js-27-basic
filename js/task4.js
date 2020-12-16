@@ -1,24 +1,7 @@
-// Пример 4 - используя Object entries
-// и деструктуризацию напишите скрипт, который
-// выводит содержимое объекта user в формате ключ:значение 
-
-const user = {
-  name: 'Mango',
-  age: 20,
-  hobby: 'html',
-  premium: true,
-};
-
-const userEntries = Object.entries(user);
-
-// for (const entry of userEntries) {
-//   const [key, value] = entry;
-
-//   console.log(`${key}: ${value}`);
-// }
-
-// console.log(userEntries);
-
-for (const [key, value] of userEntries) {
-  console.log(`${key}: ${value}`);
-}
+// Пример 4 - напишите функции
+// calculate(num1, num2, action) - которая принимает 2 числа
+// и action - функцию - действие над числами
+// add(a, b) - складывает числа
+// substract(a, b) - вычитает из числа a число b
+// mult(a, b) - умножает числа
+// divide(a, b) - делит число a на число b

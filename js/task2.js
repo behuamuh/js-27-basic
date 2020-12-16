@@ -1,30 +1,12 @@
-// Пример 2
-// Перепешите функцию calculateAverage() 
-// на стрелочную,
-// которая принимает произвольное кол-во аргументов 
-// и возвращает их среднее значение. 
-// Все аргументы будут только числами.
+// Пример 2 - Коллбек функции
+// Напишите две функции:
 
-// function calculateAverage() {
-//   let sum = 0;
-//   for (let i = 0; i < arguments.length; i++) {
-//     sum += arguments[i];
-//   }
+// makeProduct(name, price, callback) - принимает имя и цену товара, 
+// а также колбек. Функция создаёт обьект товара, 
+// добавляя ему уникальный идентификатор в свойство id 
+// и вызывает колбек передавая ему созданный обьект.
 
-//   const average = sum / arguments.length;
-//   return average ;
-// }
+// showProduct(product) - коллбек принимающий обьект продукта 
+// и логирующий его в консоль
 
-const calculateAverage = (...args) => {
-  let sum = 0;
-  for (let i = 0; i < args.length; i++) {
-    sum += args[i];
-  }
-
-  const average = sum / args.length;
-  return average ;
-};
-
-console.log(calculateAverage(1, 2, 3, 4)); // 2.5
-console.log(calculateAverage(14, 8, 2)); // 8
-console.log(calculateAverage(27, 43, 2, 8, 36)); // 23.2
+makeProduct('Холодильник', 10000, showProduct);
