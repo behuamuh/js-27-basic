@@ -8,8 +8,30 @@ const product = {
   },
 };
 
-function callAction(action) {
-  action();
+const product2 = {
+  price: 10000,
+  showPrice() {
+    console.log(this.price);
+  },
+};
+
+function callAction(callback) {
+  callback();
 }
 
-callAction(product.showPrice);
+const showProductPrice = product.showPrice.bind(product);
+
+callAction(showProductPrice);
+callAction(product2.showPrice.bind(product2));
+
+// function callAction(action, context) {
+//   action.call(context);
+// }
+
+// callAction(product.showPrice, product);
+// callAction(product2.showPrice, product2);
+
+// product.showPrice.bind(product);
+// showPriceCopy() {
+//   console.log(product.price);
+// }

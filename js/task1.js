@@ -4,7 +4,7 @@
 const product = {
   price: 5000,
   showPrice() {
-    console.log(price);
+    console.log(this.price);
   },
 };
 
