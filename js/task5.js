@@ -1,56 +1,25 @@
-// Пример 5 - напишите функцию
-// makeCounter() - которая возвращает обект счетчик
-// у которого есть методы 
-// increment() - увеличить на 1
-// decrement() - уменьшить на 1
-// reset() - сбросить счетчик на 0
-// show() - вывести текущее значение в консоль
+// Пример 5 - Bind
+// Напишите функцию applyDiscount для хранения скидки
+// на основании функции getPriceWithDiscount
+// Функция возвращает другую функцию, 
+// которая принимает сумму покупки 
+// и возвращает финальную сумму с сохранённой скидкой.
 
-function makeCounter() {
-  let count = 0;
-  return {
-    increment() {
-      count++;
-    },
-    decrement() {
-      count--;
-    },
-    show() {
-      console.log(count);
-    },
-    reset() {
-      count = 0;
-    },
-  };
+function getPriceWithDiscount(discount, price) {
+  const priceWithDiscount = price - price * discount / 100;
+
+  return priceWithDiscount;
 }
 
-const counter = makeCounter(); // count = 0
-const counter2 = makeCounter(); // count = 0
+const withBaseDiscount = applyDiscount(0);
+const withSilverDiscount = applyDiscount(5);
+const withGoldDiscount = applyDiscount(10);
 
-console.log(counter === counter2);
-
-counter.increment();
-counter.increment();
-counter.increment();
-counter.increment();
-counter.increment();
-
-counter.show();
-counter2.show();
-
-counter.decrement();
-counter.decrement();
-counter.decrement();
-counter.decrement();
-counter.decrement();
-counter.decrement();
-counter.decrement();
-counter.decrement();
-
-counter.show();
-counter2.show();
-
-counter.reset();
-
-counter.show();
-counter2.show();
+console.log('withBaseDiscount', withBaseDiscount(100));
+console.log('withBaseDiscount', withBaseDiscount(200));
+console.log('withSilverDiscount', withSilverDiscount(100));
+console.log('withSilverDiscount', withSilverDiscount(200));
+console.log('withGoldDiscount', withGoldDiscount(100));
+console.log('withGoldDiscount', withGoldDiscount(200));
+console.log('withGoldDiscount', withGoldDiscount(300));
+console.log('withGoldDiscount', withGoldDiscount(400));
