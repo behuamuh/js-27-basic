@@ -1,6 +1,5 @@
 // Пример 3 - Реализуйте "класс" Student (Студент), 
 // который будет наследовать от "класса" User, подобно тому, 
-// как это сделано в теоретической части урока. 
 // Этот "класс" должен иметь следующие свойства: 
 // name (имя, наследуется от User), 
 // surname (фамилия, наследуется от User), 
@@ -11,6 +10,31 @@
 // который будет выводить текущий курс студента (от 1 до 5). 
 // Курс вычисляется так: нужно от текущего года отнять год поступления в вуз. 
 // Текущий год получите самостоятельно.
+
+function User(name, surname) {
+  this.name = name;
+  this.surname = surname;
+}
+
+User.prototype.getFullName = function() {
+  return `${this.name} ${this.surname}`;
+};
+
+function Student(name, surname, year) {
+  User.call(this, name, surname);
+
+  this.year = year;
+}
+
+Student.prototype = Object.create(User.prototype);
+Student.prototype.constructor = Student;
+
+Student.prototype.getCourse = function() {
+  const now = new Date();
+  const nowYear = now.getFullYear();
+
+  return nowYear - this.year;
+};
 
 const student = new Student('Иван', 'Иванов', 2015);
 

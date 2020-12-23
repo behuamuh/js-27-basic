@@ -17,6 +17,11 @@ const pockets = {
   money: 2000,
 };
 
+Object.setPrototypeOf(pockets, bed);
+Object.setPrototypeOf(bed, table);
+Object.setPrototypeOf(table, head);
+
+// console.log(pockets);
 // Присвойте объектам прототипы так, 
 // чтобы любой поиск чего - либо шёл по алгоритму 
 // pockets -> bed -> table -> head.
