@@ -1,33 +1,30 @@
-// Пример 4 - есть функция changeSalary
-// и пользователи
-// напишите функцию, которая принимает пользователя и число
-// и меняет ему зарплату на число с помощью ф-ии changeSalary
+// Пример 4 - Викторина
+// Какие значения будут выводиться в коде ниже?
 
-function changeSalary(value) {
-  this.salary += value;
-}
+const animal = { jumps: null };
+const rabbit = { jumps: true };
 
-// function changeUserSalary(user, value) {
-//   user.salary += value;
-// }
+Object.setPrototypeOf(rabbit, animal);
 
-function changeUserSalary(user, value) {
-  // changeSalary.call(user, value);
-  changeSalary.apply(user, [value]);
-}
+console.log(rabbit.jumps); // ? (1)
 
-const user1 = {
-  name: 'Афанасий',
-  salary: 1300,
-};
+delete rabbit.jumps;
+console.log(rabbit.jumps); // ? (2)
 
-const user2 = {
-  name: 'Анастасия',
-  salary: 2500,
-};
+delete animal.jumps;
+console.log(rabbit.jumps);  // ? (3)
 
-changeUserSalary(user1, 300);
-changeUserSalary(user2, -400);
+// В примерах ниже производятся различные действия с prototype.
+// Каковы будут результаты выполнения ? Почему ?
 
-console.table(user1);
-console.table(user2);
+function Rabbit() { }
+
+Rabbit.prototype = { eats: true };
+const rabbit2 = new Rabbit();
+
+Rabbit.prototype = {};
+
+// Rabbit.prototype.eats = false; // А если раскоментить эту строку
+// delete Rabbit.prototype.eats; // А если раскоментить эту строку
+
+console.log(rabbit2.eats);

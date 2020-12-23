@@ -1,37 +1,16 @@
-// Пример 2 - Привязка контекста
-// Исправьте ошибки чтобы код работал.
+// Пример 2 - Напишите новый "класс" Boss, 
+// который наследуется от Worker из прошлого задания. 
+// Появляется новые свойство: workers - количество работников. 
+// И зарплата считается по другому: 
+// произведение (умножение) ставки rate на количество отработанных дней 
+// и на количество работников.
 
-const product = {
-  price: 5000,
-  showPrice() {
-    console.log(this.price);
-  },
-};
+const boss = new Boss('Иван', 'Иванов', 10, 31, 10);
 
-const product2 = {
-  price: 10000,
-  showPrice() {
-    console.log(this.price);
-  },
-};
-
-function callAction(callback) {
-  callback();
-}
-
-const showProductPrice = product.showPrice.bind(product);
-
-callAction(showProductPrice);
-callAction(product2.showPrice.bind(product2));
-
-// function callAction(action, context) {
-//   action.call(context);
-// }
-
-// callAction(product.showPrice, product);
-// callAction(product2.showPrice, product2);
-
-// product.showPrice.bind(product);
-// showPriceCopy() {
-//   console.log(product.price);
-// }
+console.log(boss.name); //выведет 'Иван'
+console.log(boss.surname); //выведет 'Иванов'
+console.log(boss.getFullName); //выведет 'Иванов Иван'
+console.log(boss.rate); //выведет 10
+console.log(boss.days); //выведет 31
+console.log(boss.workers); //выведет 10
+console.log(boss.getSalary()); //выведет 3100 - то есть 10*31*10

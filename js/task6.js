@@ -1,34 +1,23 @@
-// Пример 6 - Композиция
-// Напишите функцию compose
-// Которая принимает несколько функций
-// и возвращает функцию, принимающую число
-// и применяющую к нему эти функции поочередно
+// Пример 6 - Задача 6
+// Вы — руководитель команды, которая разрабатывает игру, 
+// хомяковую ферму.Один из программистов получил задание создать класс «хомяк» (англ - "Hamster").
+// Объекты - хомяки должны иметь массив food для хранения еды и метод found, который добавляет к нему.
+// Какой есть баг и как  его поправить.
 
-// function add3v2(n) {
-//   return n + 3;
-// }
+function Hamster() { }
 
-const add3 = n => n + 3;
-const mult5 = n => n * 5;
-const pow2 = n => n ** 2;
+Hamster.prototype.food = []; // пустой "живот"
 
-function compose(...fns) {
-  function composed(n) {
-    let result = n;
-    for (let i = 0; i < fns.length; i++) {
-      const currentFunction = fns[i];
-      result = currentFunction(result); 
-    }
+Hamster.prototype.found = function (something) {
+  this.food.push(something);
+};
 
-    return result;
-  }
+// Создаём двух хомяков и кормим первого
+const speedy = new Hamster();
+const lazy = new Hamster();
 
-  return composed;
-}
+speedy.found('яблоко');
+speedy.found('орех');
 
-const composedFunc1 = compose(add3, mult5, pow2);
-console.log(composedFunc1(5));
-// add3(5) => 8 | mult5(8) => 40 | pow2(40) => 1600
-const composedFunc2 = compose(mult5, pow2, add3);
-console.log(composedFunc2(5));
-// mult5(5) => 25 | pow2(25) => 625 | add3(625) => 628
+console.log(speedy.food);
+console.log(lazy.food);

@@ -1,35 +1,22 @@
-// Пример 3 - bind
-// Напишите функцию, которая принимает число - степень
-// и возвращает функцию, 
-// которая принимает число и возводит его в переданную 
-// ранее степень
+// Пример 3 - Реализуйте "класс" Student (Студент), 
+// который будет наследовать от "класса" User, подобно тому, 
+// как это сделано в теоретической части урока. 
+// Этот "класс" должен иметь следующие свойства: 
+// name (имя, наследуется от User), 
+// surname (фамилия, наследуется от User), 
+// year (год поступления в вуз). 
+// "Класс" должен иметь метод getFullName() (наследуется от User), 
+// с помощью которого можно вывести одновременно имя и фамилию студента. 
+// Также "класс" должен иметь метод getCourse(), 
+// который будет выводить текущий курс студента (от 1 до 5). 
+// Курс вычисляется так: нужно от текущего года отнять год поступления в вуз. 
+// Текущий год получите самостоятельно.
 
-// function makePower(num) {
-//   function power(n) {
-//     return Math.pow(num, n);
-//   }
+const student = new Student('Иван', 'Иванов', 2015);
 
-//   return power;
-// }
-
-const makePower = num => Math.pow.bind(null, num);
-
-// Math.pow(num, n) => num ** n;
-const powTwo = makePower(2);
-
-// const num = 2;
-// const power = Math.pow.bind(null, 2);
-// this внутри power - null
-// num => 2 ** num;
-
-console.log(powTwo(2)); // 4
-console.log(powTwo(3)); // 8
-console.log(powTwo(4)); // 16
-console.log(powTwo(5)); // 32
-console.log('-------');
-
-const powThree = makePower(3);
-
-console.log(powThree(2)); // 9
-console.log(powThree(3)); // 27
-console.log(powThree(4)); // 81
+console.log(student); 
+console.log(student.name); //выведет 'Иван'
+console.log(student.surname); //выведет 'Иванов'
+console.log(student.getFullName()); //выведет 'Иван Иванов'
+console.log(student.year); //выведет 20152018
+console.log(student.getCourse()); //выведет 3 - третий курс, так как текущий год 

@@ -1,58 +1,27 @@
-// Пример 5 - Bind
-// Напишите функцию applyDiscount для хранения скидки
-// на основании функции getPriceWithDiscount
-// Функция возвращает другую функцию, 
-// которая принимает сумму покупки 
-// и возвращает финальную сумму с сохранённой скидкой.
+// Пример 5 - // Есть объекты:
 
-// До bind
-function getPriceWithDiscount(discount, price) {
-  const priceWithDiscount = price - price * discount / 100;
+const head = {
+  glasses: 1,
+};
 
-  return priceWithDiscount;
-}
+const table = {
+  pen: 3,
+};
 
-// После bind
-function getPriceWithDiscountCopy(price) {
-  const priceWithDiscount = price - price * 0 / 100;
+const bed = {
+  sheet: 1,
+  pillow: 2,
+};
 
-  return priceWithDiscount;
-}
+const pockets = {
+  money: 2000,
+};
 
-// const applyDiscount = discount => getPriceWithDiscount.bind(null, discount);
-function applyDiscount(discount) {
-  return getPriceWithDiscount.bind(null, discount);
-} 
+// Присвойте объектам прототипы так, 
+// чтобы любой поиск чего - либо шёл по алгоритму 
+// pockets -> bed -> table -> head.
+// То есть pockets.pen == 3, bed.glasses == 1, но table.money == undefined.
 
-const withBaseDiscount = applyDiscount(0);
-// После bind
-// function getPriceWithDiscountCopy(price) {
-//   const priceWithDiscount = price - price * 0 / 100;
-
-//   return priceWithDiscount;
-// }
-
-const withSilverDiscount = applyDiscount(5);
-// После bind
-// function getPriceWithDiscountCopy(price) {
-//   const priceWithDiscount = price - price * 5 / 100;
-
-//   return priceWithDiscount;
-// }
-
-const withGoldDiscount = applyDiscount(10);
-// После bind
-// function getPriceWithDiscountCopy(price) {
-//   const priceWithDiscount = price - price * 10 / 100;
-
-//   return priceWithDiscount;
-// }
-
-console.log('withBaseDiscount', withBaseDiscount(100));
-console.log('withBaseDiscount', withBaseDiscount(200));
-console.log('withSilverDiscount', withSilverDiscount(100));
-console.log('withSilverDiscount', withSilverDiscount(200));
-console.log('withGoldDiscount', withGoldDiscount(100));
-console.log('withGoldDiscount', withGoldDiscount(200));
-console.log('withGoldDiscount', withGoldDiscount(300));
-console.log('withGoldDiscount', withGoldDiscount(400));
+console.log(pockets.pen); // 3
+console.log(bed.glasses); // 1
+console.log(table.money); // undefined
