@@ -1,30 +1,31 @@
 // Пример 3 - перепишите классы User, Student
 // с использованием классов
 
-function User(name, surname) {
-  this.name = name;
-  this.surname = surname;
+class User {
+  constructor(name, surname) {
+    this.name = name;
+    this.surname = surname;
+  }
+
+  getFullName() {
+    return `${this.name} ${this.surname}`;
+  }
 }
 
-User.prototype.getFullName = function() {
-  return `${this.name} ${this.surname}`;
-};
+class Student extends User {
+  constructor(name, surname, year) {
+    super(name, surname);
 
-function Student(name, surname, year) {
-  User.call(this, name, surname);
+    this.year = year;
+  }
 
-  this.year = year;
+  getCourse() {
+    const now = new Date();
+    const nowYear = now.getFullYear();
+  
+    return nowYear - this.year;
+  }
 }
-
-Student.prototype = Object.create(User.prototype);
-Student.prototype.constructor = Student;
-
-Student.prototype.getCourse = function() {
-  const now = new Date();
-  const nowYear = now.getFullYear();
-
-  return nowYear - this.year;
-};
 
 const student = new Student('Иван', 'Иванов', 2015);
 

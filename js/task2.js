@@ -1,37 +1,53 @@
 // Пример 2 - перепишите классы  Worker, Boss 
 // с использованием классов
 
-function Worker({ name, surname, rate, days }) {
-  this.name = name;
-  this.surname = surname;
-  this.rate = rate;
-  this.days = days;
+// class A {
+//   constructor() {
+//     console.log('A created');
+//   }
+// }
+
+// class B extends A {
+//   constructor() {
+//     super();
+//     console.log('B created');
+//   }
+// }
+
+// const a1 = new A();
+// const b1 = new B();
+
+class Worker {
+  constructor({ name, surname, rate, days }) {
+    this.name = name;
+    this.surname = surname;
+    this.rate = rate;
+    this.days = days;
+  }
+
+  getSalary() {
+    const salary = this.rate * this.days;
+    return salary;
+  }
+
+  getFullName() {
+    const fullName = `${this.name} ${this.surname}`;
+    return fullName;
+  }
 }
 
-Worker.prototype.getSalary = function() {
-  const salary = this.rate * this.days;
-  return salary;
-};
+class Boss extends Worker {
+  constructor({ name, surname, rate, days, workers }){
+    super({ name, surname, rate, days });
 
-Worker.prototype.getFullName = function() {
-  const fullName = `${this.name} ${this.surname}`;
-  return fullName;
-};
+    this.workers = workers;
+  }
 
-function Boss({ name, surname, rate, days, workers }) {
-  Worker.call(this, { name, surname, rate, days });
-
-  this.workers = workers;
+  getSalary() {
+    const salary = this.rate * this.days * this.workers;
+    return salary;
+  }
 }
-
-Boss.prototype = Object.create(Worker.prototype);
-
-Boss.prototype.constructor = Boss;
-
-Boss.prototype.getSalary = function() {
-  const salary = this.rate * this.days * this.workers;
-  return salary;
-};
 
 const boss = new Boss({
   surname: 'Иванов', 
