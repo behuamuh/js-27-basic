@@ -1,32 +1,22 @@
-// Пример 5 - // Есть объекты:
+// 5 - Клиент
+// Напиши класс Client который создаёт объект со свойствами login и email. 
+// Объяви приватные свойства login и email, 
+// доступ к которым сделай через геттер и сеттер login и email.
 
-const head = {
-  glasses: 1,
-};
+const mango = new Client({
+  login: 'Mango',
+  email: 'mango@dog.woof',
+});
 
-const table = {
-  pen: 3,
-};
+console.log(mango.login); // Mango
+mango.login = 'Mangodoge';
+console.log(mango.login); // Mangodoge
 
-const bed = {
-  sheet: 1,
-  pillow: 2,
-};
+const poly = new Client({
+  login: 'Poly',
+  email: 'poly@mail.com',
+});
 
-const pockets = {
-  money: 2000,
-};
-
-Object.setPrototypeOf(pockets, bed);
-Object.setPrototypeOf(bed, table);
-Object.setPrototypeOf(table, head);
-
-// console.log(pockets);
-// Присвойте объектам прототипы так, 
-// чтобы любой поиск чего - либо шёл по алгоритму 
-// pockets -> bed -> table -> head.
-// То есть pockets.pen == 3, bed.glasses == 1, но table.money == undefined.
-
-console.log(pockets.pen); // 3
-console.log(bed.glasses); // 1
-console.log(table.money); // undefined
+console.log(poly.login); // Poly
+poly.login = 'Polycutie';
+console.log(poly.login); // Polycutie

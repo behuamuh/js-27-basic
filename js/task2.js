@@ -1,9 +1,5 @@
-// Пример 2 - Напишите новый "класс" Boss, 
-// который наследуется от Worker из прошлого задания. 
-// Появляется новые свойство: workers - количество работников. 
-// И зарплата считается по другому: 
-// произведение (умножение) ставки rate на количество отработанных дней 
-// и на количество работников.
+// Пример 2 - перепишите классы  Worker, Boss 
+// с использованием классов
 
 function Worker({ name, surname, rate, days }) {
   this.name = name;
@@ -21,15 +17,6 @@ Worker.prototype.getFullName = function() {
   const fullName = `${this.name} ${this.surname}`;
   return fullName;
 };
-
-// function Boss({ name, surname, rate, days, workers }) {
-//   const instance = Object.create(Boss.prototype);
-//   Worker.call(instance, { name, surname, rate, days });
-
-//   instance.workers = workers;
-
-//   return instance;
-// }
 
 function Boss({ name, surname, rate, days, workers }) {
   Worker.call(this, { name, surname, rate, days });

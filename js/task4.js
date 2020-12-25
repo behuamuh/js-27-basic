@@ -1,35 +1,27 @@
-// Пример 4 - Викторина
-// Какие значения будут выводиться в коде ниже?
+// 4 - Хранилище
+// Напиши класс Storage 
+// который создаёт объекты для управления складом товаров. 
+// При вызове будет получать один аргумент - начальный массив товаров, 
+// и записывать его в свойство items.
 
-const animal = { jumps: null };
-const rabbit = { jumps: true };
+// Добавь методы класса:
 
-Object.setPrototypeOf(rabbit, animal);
+// getItems() - возвращает массив товаров.
+// addItem(item) - получает новый товар и добавляет его к текущим.
+// removeItem(item) - получет товар и, если он есть, удаляет его из текущих.
 
-console.log(1, rabbit.jumps); // ? (1)
+const storage = new Storage([
+  'Нанитоиды',
+  'Пролонгер',
+  'Железные жупи',
+  'Антигравитатор',
+]);
 
-delete rabbit.jumps;
-console.log(2, rabbit.jumps); // ? (2)
+const items = storage.getItems();
+console.table(items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор" ]
 
-delete animal.jumps;
-console.log(3, rabbit.jumps);  // ? (3)
+storage.addItem('Дроид');
+console.table(storage.items); // [ "Нанитоиды", "Пролонгер", "Железные жупи", "Антигравитатор", "Дроид" ]
 
-// В примерах ниже производятся различные действия с prototype.
-// Каковы будут результаты выполнения ? Почему ?
-
-function Rabbit() { }
-
-Rabbit.prototype = { eats: true };
-const rabbit2 = new Rabbit();
-
-// console.log(rabbit2);
-// rabbit2.__proto__ = Rabbit.prototype => { eats: true }
-
-// Rabbit.prototype = {};
-// const rabbit3 = new Rabbit();
-
-// Rabbit.prototype.eats = false; // А если раскоментить эту строку
-delete Rabbit.prototype.eats; // А если раскоментить эту строку
-
-console.log(4, rabbit2.eats);
-// console.log(5, rabbit3.eats);
+storage.removeItem('Пролонгер');
+console.table(storage.items); // [ "Нанитоиды", "Железные жупи", "Антигравитатор", "Дроид" ]

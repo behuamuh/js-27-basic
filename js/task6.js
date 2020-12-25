@@ -1,23 +1,28 @@
-// Пример 6 - Задача 6
-// Вы — руководитель команды, которая разрабатывает игру, 
-// хомяковую ферму. Один из программистов получил задание создать класс «хомяк» (англ - "Hamster").
-// Объекты - хомяки должны иметь массив food для хранения еды и метод found, который добавляет к нему.
-// Какой есть баг и как  его поправить.
+// 4 - Заметки
+// Напиши класс Notes который управляет коллекцией заметок в свойстве items. 
+// Заметка это объект со свойствами text и priority. 
+// Добавь классу статическое свойство Priority, 
+// в котором будет храниться объект с приоритетами.
 
-function Hamster() {
-  this.food = []; // пустой "живот"
-}
+// {
+//   LOW: 'low',
+//   NORMAL: 'normal',
+//   HIGH: 'high'
+// }
 
-Hamster.prototype.found = function (something) {
-  this.food.push(something);
-};
+// Добавь методы addNote(note), removeNote(text) 
+// и updateNotePriority(text, newPriority).
 
-// Создаём двух хомяков и кормим первого
-const speedy = new Hamster();
-const lazy = new Hamster();
+const myNotes = new Notes([]); 
 
-speedy.found('яблоко');
-speedy.found('орех');
+myNotes.addNote({  text: 'Моя первая заметка', priority: Notes.Priority.LOW })
+console.log(myNotes.items); 
 
-console.log(speedy.food);
-console.log(lazy.food);
+myNotes.addNote({ text: 'Моя вторая заметка', priority: Notes.Priority.NORMAL })
+console.log(myNotes.items); 
+
+myNotes.removeNote('Моя первая заметка');
+console.log(myNotes.items); 
+
+myNotes.updateNote('Моя вторая заметка', Notes.Priority.HIGH);
+console.log(myNotes.items); 

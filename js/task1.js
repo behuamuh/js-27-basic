@@ -1,61 +1,26 @@
-// Пример 1 - Реализуйте "класс" Worker (Работник)
-// который будет иметь следующие свойства: 
-// name (имя), surname (фамилия), rate (ставка за день работы), 
-// days (количество отработанных дней). 
-// Также "класс" должен иметь метод getSalary(), 
-// который будет выводить зарплату работника. 
-// Зарплата - это произведение (умножение) ставки rate 
-// на количество отработанных дней days. 
-// И метод getFullName() - имя и фамиля работника.
+// 1 - Пользователь
+// Напиши класс User для создания пользователя со следующим свойствами:
 
-// Реализуйте статическое свойство count,
-// в котором храните число созданных работников
+// username - имя, строка
+// age - возраст, число
+// numberOfPosts - кол-во постов, число
+// Класс ожидает 1 параметр - объект настроек с одноимёнными свойствами.
 
-function Worker({ name, surname, rate, days }) {
-  this.name = name;
-  this.surname = surname;
-  this.rate = rate;
-  this.days = days;
+// Добавь метод getInfo(), который, возвращает строку: 
+// User ${имя} is ${возраст} years old and has ${кол-во постов} posts.
 
-  Worker.count++;
-}
-
-Worker.count = 0;
-Worker.factory = 'ООО Рога и Копыта';
-
-Worker.prototype.getSalary = function() {
-  const salary = this.rate * this.days;
-
-  return salary;
-};
-
-Worker.prototype.getFullName = function() {
-  const fullName = `${this.name} ${this.surname}`;
-
-  return fullName;
-};
-
-const worker = new Worker({
-  surname: 'Иванов', 
-  rate: 10, 
-  name: 'Иван', 
-  days: 31,
+const mango = new User({
+  name: 'Mango',
+  age: 24,
+  numberOfPosts: 20,
 });
 
-console.log(worker.name); //выведет 'Иван'
-console.log(worker.surname); //выведет 'Иванов'
-console.log(worker.getFullName()); //выведет 'Иванов Иван'
-console.log(worker.rate); //выведет 10
-console.log(worker.days); //выведет 31
-console.log(worker.getSalary()); //выведет 310 - то есть 10*31
+console.log(mango.getInfo()); // User Mango is 24 years old and has 20 posts
 
-for (let i = 0; i < 10; i++) {
-  new Worker({
-    surname: 'Иванов', 
-    rate: 10, 
-    name: 'Иван', 
-    days: 31,
-  });
-}
+const poly = new User({
+  name: 'Poly',
+  age: 19,
+  numberOfPosts: 17,
+});
 
-console.log(Worker.factory);
+console.log(poly.getInfo()); // User Poly is 19 years old and has 17 posts
