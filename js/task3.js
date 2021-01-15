@@ -10,10 +10,28 @@ const items = [
   { name: 'DELL', price: 12000 },
   { name: 'BENQ', price: 7000 },
 ];
+
+const priceAscCompare = (a, b) => a.price - b.price;
+const priceDescCompare = (a, b) => b.price - a.price;
+const nameAscCompare = (a, b) => a.name > b.name ? 1 : -1;
+const nameDescCompare = (a, b) => a.name < b.name ? 1 : -1;
 // По свойству price
-const itemsByAscendingPrice = items;
-const itemsByDescendingPrice = items;
+const itemsByAscendingPrice = items
+  .slice()
+  .sort(priceAscCompare);
+console.log(itemsByAscendingPrice);
+const itemsByDescendingPrice = items
+  .slice()
+  .sort(priceDescCompare);
+console.log(itemsByDescendingPrice);
 
 // По свойству name
-const itemsInAlphabeticalOrder = items;
-const itemsInDescAlpahbeticalOrder = items;
+const itemsInAlphabeticalOrder = items
+  .slice()
+  .sort(nameAscCompare);
+console.log(itemsInAlphabeticalOrder);
+
+const itemsInDescAlpahbeticalOrder = items
+  .slice()
+  .sort(nameDescCompare);
+console.log(itemsInDescAlpahbeticalOrder);

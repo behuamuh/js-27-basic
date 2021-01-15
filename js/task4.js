@@ -22,7 +22,31 @@ const courses = [
   },
 ];
 
-const allTopics = courses;
-const uniqueTopics = allTopics;
+// const allTopics = courses.reduce((acc, item) => {
+//   acc.push(...item.topics);
+
+//   return acc;
+// }, []);
+
+const allTopics = courses.flatMap(item => item.topics);
+
+console.log(allTopics);
+const uniqueTopics = allTopics.filter((item, index, arr) => {
+  return arr.indexOf(item) === index;
+});
+
+const itemsWithoutDoubles = allTopics.filter((item, _index, arr) => {
+  return arr.indexOf(item) === arr.lastIndexOf(item);
+});
+
+console.log(uniqueTopics);
+console.log(itemsWithoutDoubles);
 
 // Выполнить рефакторинг используя цепочку методов flatMap и filter.
+const chainUniqueTopics = courses
+  .flatMap(item => item.topics)
+  .filter((item, index, arr) => {
+    return arr.indexOf(item) === index;
+  });
+
+console.log(chainUniqueTopics);

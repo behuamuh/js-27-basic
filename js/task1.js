@@ -4,5 +4,26 @@
 // Рассмотреть callback для метода sort.
 
 const prices = [2, 14, 1, 37, 26, 8];
-const pricesInAscendingOrder = prices;
-const pricesInDescendingOrder = prices;
+// console.table(prices);
+
+function ascCompare(prev, next) {
+  // if (prev > next) return 1;
+  // if (prev < next) return -1;
+
+  // return 0;
+  return prev - next;
+}
+
+function descCompare(prev, next) {
+  // if (prev > next) return 1;
+  // if (prev < next) return -1;
+
+  // return 0;
+  return next - prev; 
+}
+
+const pricesInAscendingOrder = prices.sort((a, b) => a - b);
+console.table(pricesInAscendingOrder);
+
+const pricesInDescendingOrder = prices.sort((a, b) => b - a);
+console.table(pricesInDescendingOrder);
