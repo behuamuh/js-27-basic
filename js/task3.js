@@ -1,28 +1,19 @@
-// Пример 3 - Напишите функцию getAverage(numbers), 
-// которая принимает массив чисел и возвращает среднее
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+// Пример 3 - Сортировка сложных типов
+// Выполнить сортировку массива объектов:
 
-// const getAverage = arr => {
-//   let sum = 0;
-  
-//   for (const num of arr) {
-//     sum += num;
-//   }
+// по возрастанию и убыванию значения свойства price.
+// по имени в алфавитном и обратном алфавитном порядке.
+const items = [
+  { name: 'SAMSUNG', price: 15000 },
+  { name: 'LG', price: 9000 },
+  { name: 'ASUS', price: 27000 },
+  { name: 'DELL', price: 12000 },
+  { name: 'BENQ', price: 7000 },
+];
+// По свойству price
+const itemsByAscendingPrice = items;
+const itemsByDescendingPrice = items;
 
-//   return sum / arr.length;
-// };
-
-const getAverage = arr => {
-  // const sum = arr.reduce((acc, num) => {
-  //   return acc + num;
-  // }, 0);
-
-  const sum = arr.reduce((acc, num) => acc + num);
-  const average = sum / arr.length;
-
-  return average;
-};
-
-// const getAverage = arr => arr.reduce((acc, num) => acc + num) / arr.length;
-
-console.table(getAverage(numbers));
+// По свойству name
+const itemsInAlphabeticalOrder = items;
+const itemsInDescAlpahbeticalOrder = items;

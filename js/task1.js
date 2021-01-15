@@ -1,27 +1,8 @@
-// 1 - Дан массив с числами
-// Напечатайте в консоль только четные
-const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+// 1 - Сортировка примитивов
+// Выполнить сортировку массива цен по убыванию и возрастанию.
+// Вспомнить как сортирует по умолчанию.
+// Рассмотреть callback для метода sort.
 
-// function logEven(item) {
-//   if (item % 2 !== 0) return;
-
-//   console.log(item);
-// }
-
-// numbers.forEach(function(item) {
-//   if (item % 2 !== 0) return;
-
-//   console.log(item);
-// });
-
-numbers.forEach(item => {
-  if (item % 2 === 0) {
-    console.log(item);
-  }
-});
-
-numbers
-  .filter(n => n % 2 === 0)
-  .forEach(n => console.log(n));
-
-// console.log(evenNumbers);
+const prices = [2, 14, 1, 37, 26, 8];
+const pricesInAscendingOrder = prices;
+const pricesInDescendingOrder = prices;
