@@ -1,29 +1,13 @@
-// 1 - Сортировка примитивов
-// Выполнить сортировку массива цен по убыванию и возрастанию.
-// Вспомнить как сортирует по умолчанию.
-// Рассмотреть callback для метода sort.
+// 1 - Классы
+// Дан элемент #elem. 
+// Добавьте ему класс www.
 
-const prices = [2, 14, 1, 37, 26, 8];
-// console.table(prices);
+// Удалите у него класс www.
 
-function ascCompare(prev, next) {
-  // if (prev > next) return 1;
-  // if (prev < next) return -1;
+// Проверьте наличие у него класса www.
 
-  // return 0;
-  return prev - next;
-}
+// Добавьте ему класс www, если его нет и удалите - если есть.
 
-function descCompare(prev, next) {
-  // if (prev > next) return 1;
-  // if (prev < next) return -1;
+// Узнайте количество его классов.
 
-  // return 0;
-  return next - prev; 
-}
-
-const pricesInAscendingOrder = prices.sort((a, b) => a - b);
-console.table(pricesInAscendingOrder);
-
-const pricesInDescendingOrder = prices.sort((a, b) => b - a);
-console.table(pricesInDescendingOrder);
+// Выведите последовательно алертом его классы.
