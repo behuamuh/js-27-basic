@@ -9,3 +9,6 @@ elemRef
   .parentNode
   .parentElement
   .style.backgroundColor = 'blue';
+
+console.log(elemRef.dataset.size);
+console.log(elemRef.dataset.value);
