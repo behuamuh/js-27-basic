@@ -1,9 +1,5 @@
-// 5 - Вставка элементов через insertBefore
-// Дан элемент ul, а в нем li #elem. 
-// Вставьте перед элементом #elem новую li с текстом '!!!'.
-const ulRef = document.querySelector('ul');
-const elemRef = document.querySelector('#elem');
-const liRef = document.createElement('li');
-liRef.textContent = '!!!';
-
-ulRef.insertBefore(liRef, elemRef);
+// 5 - Туду лист.
+// Инпут, куда вводится текст.
+// При нажатии на ентер, в список ниже,
+// добавляется тудушка. При клике на нее,
+// она становится выполненной, т.е. текст зачеркивается

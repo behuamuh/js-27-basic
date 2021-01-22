@@ -1,7 +1,17 @@
-/* #elem {
-  color: blue;
+.error {
+  border: 1px solid red;
+}
+
+input {
+  padding: 8px;
+}
+
+.rect {
   width: 100px;
-  height: 100px;
+  height: 50px;
   border: 1px solid black;
-  display: block;
-} */
+}
+
+.complete {
+  text-decoration: line-through;
+}
