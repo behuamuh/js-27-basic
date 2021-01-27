@@ -1,39 +1,23 @@
-.error {
-  border: 1px solid red;
-}
-
-input {
-  padding: 8px;
-}
-
-.rect {
-  width: 100px;
-  height: 50px;
+.Select {
+  outline: none;
+  position: relative;
   border: 1px solid black;
 }
 
-.red {
-  background-color: red;
-}
-
-.complete {
-  text-decoration: line-through;
-}
-
-input {
-  outline: none;
-}
-
-.popup {
-  display: none;
+.Select__Options {
+  overflow-y: auto;
+  list-style-type: none;
+  margin: 0;
+  padding: 8px 0;
   position: absolute;
-  width: 200px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: blanchedalmond;
-  text-align: center;
+  top: 100%;
+  left: 0;
+  right: 0;
 }
 
-.popup_open {
-  display: block;
+.Select__Option {
+  font-size: 14px;
+  line-height: 24px;
+  cursor: pointer;
+  padding: 8px;
 }

@@ -1,22 +1,6 @@
-// Пример 3 - Ctrl
-// Дан элемент. 
-// Сделайте так, чтобы по клику на него он красился в красный цвет, 
-// но только если в момент клика нажата клавиша Ctrl.
-const rectRef = document.querySelector('.rect');
-
-rectRef.addEventListener('click', event => {
-  console.dir(event);
-  if (event.ctrlKey) {
-    // rectRef.style.backgroundColor = 'teal';
-    rectRef.classList.add('red');
-  }
-
-  if (event.altKey) {
-    // rectRef.style.backgroundColor = 'teal';
-    rectRef.classList.remove('red');
-  }
-});
-
-rectRef.addEventListener('contextmenu', () =>{
-  console.log('Rigth click');
-});
+// Пример 3 - Поле
+// Сделайте поле из белых клеточек 8х8
+// При клике на клеточку она должна менять цвет с белого на черный,
+// с черного на белый 
+// Под таблицей должна быть кнопка «поменять цвета». 
+// При ее нажатии все цвета клеточек меняются на противоположные.
