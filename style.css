@@ -1,23 +1,55 @@
-.Select {
-  outline: none;
-  position: relative;
+.card {
+  border: 1px solid black;
+  display: flex;
+}
+
+.card_focus {
+  background-color: burlywood;
+}
+
+.card__delete {
+  border: 1px solid black;
+  background-color: red;
+  align-self: start;
+  display: inline-block;
+  margin-right: 4px;
+  cursor: pointer;
+}
+
+.parent {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.block {
+  width: 40px;
+  height: 40px;
+  background-color: white;
+  margin: 4px;
+  flex-basis: 20%;
   border: 1px solid black;
 }
 
-.Select__Options {
-  overflow-y: auto;
-  list-style-type: none;
-  margin: 0;
-  padding: 8px 0;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
+.block_active {
+  background-color: black;
 }
 
-.Select__Option {
-  font-size: 14px;
-  line-height: 24px;
+.parent_reverse .block {
+  background-color: black;
+}
+
+.parent_reverse .block_active {
+  background-color: white;
+}
+
+.tree__sub-tree {
+  display: none;
+}
+
+.tree__sub-tree_open {
+  display: block;
+}
+
+.tree__item {
   cursor: pointer;
-  padding: 8px;
 }
