@@ -20,8 +20,5 @@
   "homepage": "https://github.com/behuamuh/js-basic#readme",
   "devDependencies": {
     "eslint": "^7.14.0"
-  },
-  "dependencies": {
-    "lodash": "^4.17.20"
   }
 }
