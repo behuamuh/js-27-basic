@@ -1,0 +1,38 @@
+{
+  "name": "js-basic",
+  "version": "1.0.0",
+  "description": "Learn JS",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behuamuh/js-basic.git"
+  },
+  "keywords": [
+    "JS",
+    "Learn"
+  ],
+  "author": "Behuamuh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/behuamuh/js-basic/issues"
+  },
+  "homepage": "https://github.com/behuamuh/js-basic#readme",
+  "dependencies": {
+    "chalk": "^4.1.0",
+    "is-odd": "^3.0.1",
+    "ora": "^5.3.0",
+    "slugify": "^1.4.6"
+  },
+  "devDependencies": {
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.22.0",
+    "eslint-plugin-react-hooks": "^4.2.0"
+  }
+}

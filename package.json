@@ -1,0 +1,30 @@
+{
+  "name": "js-basic",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf lib && babel src --out-dir lib",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/behuamuh/js-basic.git"
+  },
+  "keywords": [],
+  "author": "Behuamuh",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/behuamuh/js-basic/issues"
+  },
+  "homepage": "https://github.com/behuamuh/js-basic#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.12.13",
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.12.1",
+    "chalk": "^4.1.0"
+  }
+}
