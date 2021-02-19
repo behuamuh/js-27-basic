@@ -1,1 +1,0 @@
-{"version":3,"sources":["index.js"],"names":["console","log"],"mappings":";AAAAA,QAAQC,IAAI","file":"src.71754126.js","sourceRoot":"..\\src","sourcesContent":["console.log('Привет, Мир!');\n"]}
