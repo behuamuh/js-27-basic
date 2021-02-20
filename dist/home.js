@@ -1,0 +1,1 @@
+console.log("home"),console.log(10);
