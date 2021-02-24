@@ -1,0 +1,15 @@
+{
+  "name": "js-27-basic",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:behuamuh/js-27-basic.git",
+  "author": "Behuamuh <sven1980@list.ru>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "parcel src/index.html",
+    "build": "parcel build src/index.html"
+  },
+  "devDependencies": {
+    "parcel-bundler": "^1.12.4"
+  }
+}
