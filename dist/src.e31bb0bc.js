@@ -118,7 +118,83 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 
   return newRequire;
 })({"index.js":[function(require,module,exports) {
+// 1. Задача. Выведите на экран текущие
+// день, месяц и год в формате 'год-месяц-день'.
+var now = new Date();
 
+var formatDateAndMonth = function formatDateAndMonth(num) {
+  return String(num).padStart(2, 0);
+};
+
+var year = now.getFullYear();
+var month = now.getMonth() + 1;
+var date = now.getDate();
+console.log("".concat(year, "-").concat(formatDateAndMonth(month), "-").concat(formatDateAndMonth(date))); // console.log(now.toLocaleString(undefined, {
+//   year: 'numeric',
+//   month: '2-digit',
+//   day: '2-digit',
+// }));
+// 2. Выведите на экран количество часов,
+// прошедшее между 1 марта 1988 года и текущим моментом
+
+var last = new Date(1988, 2, 1); // console.log(last.toString());
+
+var ms = now.getTime() - last.getTime();
+var MILLISECONDS_PER_HOURS = 1000 * 60 * 60;
+var MILLISECONDS_PER_DAY = MILLISECONDS_PER_HOURS * 24;
+var hours = Math.round(ms / MILLISECONDS_PER_HOURS);
+console.log(hours); // 3. Создайте инпут, в который пользователь вводит дату своего рождения в формате
+// '2014-12-31' (с конкретным годом).
+// По потери фокуса выведите под инпутом сколько дней осталось до его дня рождения.
+
+var inputRef = document.querySelector('.date');
+var resultRef = document.querySelector('.result');
+inputRef.addEventListener('blur', function () {
+  if (!Date.parse(inputRef.value)) return;
+  var birthDate = new Date(inputRef.value);
+  birthDate.setFullYear(birthDate > now ? now.getFullYear() : now.getFullYear() + 1);
+  var ms = birthDate.getTime() - now.getTime();
+  var days = Math.ceil(ms / MILLISECONDS_PER_DAY);
+  resultRef.textContent = days;
+}); // const timerRef = document.querySelector('.timer');
+// const btnRef = document.querySelector('.btn');
+// let timer = null;
+// let time = 0;
+// const tick = () => {
+//   time += 1;
+//   timerRef.innerHTML = time;
+//   if (timer) {
+//     setTimeout(tick, 1000);
+//   }
+// };
+// btnRef.addEventListener('click', () => {
+//   if (timer) {
+//     clearTimeout(timer);
+//     timer = null;
+//   } else {
+//     timer = setTimeout(tick, 1000);
+//   }
+//   btnRef.textContent = timer ? 'Stop' : 'Start';
+// });
+// const timerRef = document.querySelector('.timer');
+// const btnRef = document.querySelector('.btn');
+// let timer = null;
+// let time = 0;
+// const startTimer = () => {
+//   time += 1;
+//   timerRef.innerHTML = time;
+// };
+// btnRef.addEventListener('click', () => {
+//   if (timer) {
+//     // Останавливаем таймер
+//     clearInterval(timer);
+//     timer = null;
+//   } else {
+//     // запускаем
+//     timer = setInterval(startTimer, 1000);
+//   }
+//   btnRef.textContent = timer ? 'Stop' : 'Start';
+// });
 },{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
@@ -147,7 +223,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53405" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53379" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
