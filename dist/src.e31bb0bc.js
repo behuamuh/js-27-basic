@@ -117,46 +117,188 @@ parcelRequire = (function (modules, cache, entry, globalName) {
   }
 
   return newRequire;
-})({"index.js":[function(require,module,exports) {
-// 1. Задача. Выведите на экран текущие
-// день, месяц и год в формате 'год-месяц-день'.
-var now = new Date();
+})({"countries.js":[function(require,module,exports) {
+"use strict";
 
-var formatDateAndMonth = function formatDateAndMonth(num) {
-  return String(num).padStart(2, 0);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+var _default = ['Afghanistan', 'Albania', 'Algeria', 'American Samoa', 'Andorra', 'Angola', 'Anguilla', 'Antigua and Barbuda', 'Argentina', 'Armenia', 'Aruba', 'Australia', 'Austria', 'Azerbaijan', 'Bangladesh', 'Barbados', 'Bahamas', 'Bahrain', 'Belarus', 'Belgium', 'Belize', 'Benin', 'Bermuda', 'Bhutan', 'Bolivia', 'Bosnia and Herzegovina', 'Botswana', 'Brazil', 'British Indian Ocean Territory', 'British Virgin Islands', 'Brunei Darussalam', 'Bulgaria', 'Burkina Faso', 'Burma', 'Burundi', 'Cambodia', 'Cameroon', 'Canada', 'Cape Verde', 'Cayman Islands', 'Central African Republic', 'Chad', 'Chile', 'China', 'Christmas Island', 'Cocos (Keeling) Islands', 'Colombia', 'Comoros', 'Congo-Brazzaville', 'Congo-Kinshasa', 'Cook Islands', 'Costa Rica', 'Croatia', 'Cura?ao', 'Cyprus', 'Czech Republic', 'Denmark', 'Djibouti', 'Dominica', 'Dominican Republic', 'East Timor', 'Ecuador', 'El Salvador', 'Egypt', 'Equatorial Guinea', 'Eritrea', 'Estonia', 'Ethiopia', 'Falkland Islands', 'Faroe Islands', 'Federated States of Micronesia', 'Fiji', 'Finland', 'France', 'French Guiana', 'French Polynesia', 'French Southern Lands', 'Gabon', 'Gambia', 'Georgia', 'Germany', 'Ghana', 'Gibraltar', 'Greece', 'Greenland', 'Grenada', 'Guadeloupe', 'Guam', 'Guatemala', 'Guernsey', 'Guinea', 'Guinea-Bissau', 'Guyana', 'Haiti', 'Heard and McDonald Islands', 'Honduras', 'Hong Kong', 'Hungary', 'Iceland', 'India', 'Indonesia', 'Iraq', 'Ireland', 'Isle of Man', 'Israel', 'Italy', 'Jamaica', 'Japan', 'Jersey', 'Jordan', 'Kazakhstan', 'Kenya', 'Kiribati', 'Kuwait', 'Kyrgyzstan', 'Laos', 'Latvia', 'Lebanon', 'Lesotho', 'Liberia', 'Libya', 'Liechtenstein', 'Lithuania', 'Luxembourg', 'Macau', 'Macedonia', 'Madagascar', 'Malawi', 'Malaysia', 'Maldives', 'Mali', 'Malta', 'Marshall Islands', 'Martinique', 'Mauritania', 'Mauritius', 'Mayotte', 'Mexico', 'Moldova', 'Monaco', 'Mongolia', 'Montenegro', 'Montserrat', 'Morocco', 'Mozambique', 'Namibia', 'Nauru', 'Nepal', 'Netherlands', 'New Caledonia', 'New Zealand', 'Nicaragua', 'Niger', 'Nigeria', 'Niue', 'Norfolk Island', 'Northern Mariana Islands', 'Norway', 'Oman', 'Pakistan', 'Palau', 'Panama', 'Papua New Guinea', 'Paraguay', 'Peru', 'Philippines', 'Pitcairn Islands', 'Poland', 'Portugal', 'Puerto Rico', 'Qatar', 'R?union', 'Romania', 'Russia', 'Rwanda', 'Saint Barth?lemy', 'Saint Helena', 'Saint Kitts and Nevis', 'Saint Lucia', 'Saint Martin', 'Saint Pierre and Miquelon', 'Saint Vincent', 'Samoa', 'San Marino', 'S?o Tom? and Pr?ncipe', 'Saudi Arabia', 'Senegal', 'Serbia', 'Seychelles', 'Sierra Leone', 'Singapore', 'Sint Maarten', 'Slovakia', 'Slovenia', 'Solomon Islands', 'Somalia', 'South Africa', 'South Georgia', 'South Korea', 'Spain', 'Sri Lanka', 'Sudan', 'Suriname', 'Svalbard and Jan Mayen', 'Sweden', 'Swaziland', 'Switzerland', 'Syria', 'Taiwan', 'Tajikistan', 'Tanzania', 'Thailand', 'Togo', 'Tokelau', 'Tonga', 'Trinidad and Tobago', 'Tunisia', 'Turkey', 'Turkmenistan', 'Turks and Caicos Islands', 'Tuvalu', 'Uganda', 'Ukraine', 'United Arab Emirates', 'United Kingdom', 'United States', 'Uruguay', 'Uzbekistan', 'Vanuatu', 'Vatican City', 'Vietnam', 'Venezuela', 'Wallis and Futuna', 'Western Sahara', 'Yemen', 'Zambia', 'Zimbabwe'];
+exports.default = _default;
+},{}],"throttle.js":[function(require,module,exports) {
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = void 0;
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var throttle = function throttle(callback, ms) {
+  var currentArgs = [];
+  var lastCall = -Infinity;
+  var timer = null;
+
+  var throttled = function throttled() {
+    var now = Date.now(); // создаем временную метку
+
+    for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+      args[_key] = arguments[_key];
+    }
+
+    currentArgs = args; // сохраняем последние аргументы как актуальные
+
+    clearTimeout(timer); // чистим старый таймаут
+    // если с последнего вызова прошло не меньше, чем ms
+
+    if (now - lastCall >= ms) {
+      // вызываем оригинальную функцию
+      callback.apply(void 0, _toConsumableArray(currentArgs)); // перезаписываем время последнего вызова
+
+      lastCall = now;
+    } else {
+      // здесь прошло времени меньше, чем ms
+      var timeout = lastCall + ms - now; // поэтому планруем новый вызов через timeout
+
+      timer = setTimeout(function () {
+        return throttled.apply(void 0, _toConsumableArray(currentArgs));
+      }, timeout);
+    }
+  };
+
+  return throttled;
 };
 
-var year = now.getFullYear();
-var month = now.getMonth() + 1;
-var date = now.getDate();
-console.log("".concat(year, "-").concat(formatDateAndMonth(month), "-").concat(formatDateAndMonth(date))); // console.log(now.toLocaleString(undefined, {
+var _default = throttle;
+exports.default = _default;
+},{}],"index.js":[function(require,module,exports) {
+"use strict";
+
+var _countries = _interopRequireDefault(require("./countries"));
+
+var _throttle = _interopRequireDefault(require("./throttle"));
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+var handlerCallCount = 0;
+var startIndex = 0;
+var COUNTRY_COUNT = 10;
+var listRef = document.querySelector('.country-list');
+
+function isScrollToBottom() {
+  return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+}
+
+function createCountryRef(country) {
+  var countryRef = document.createElement('h2');
+  countryRef.classList.add('country');
+  countryRef.textContent = country;
+  return countryRef;
+}
+
+function renderPartOfCounries() {
+  var partyOfCountries = _countries.default.slice(startIndex, startIndex + COUNTRY_COUNT);
+
+  var countryRefs = partyOfCountries.map(createCountryRef);
+  listRef.append.apply(listRef, _toConsumableArray(countryRefs));
+}
+
+function scrollHandler() {
+  console.log(++handlerCallCount);
+  if (!isScrollToBottom()) return;
+  renderPartOfCounries();
+  startIndex += COUNTRY_COUNT;
+}
+
+renderPartOfCounries();
+window.addEventListener('scroll', (0, _throttle.default)(scrollHandler, 200)); // import countries from './countries';
+// import debounce from './debounce';
+// let handlerCallCount = 0;
+// const listRef = document.querySelector('.country-list');
+// const searchRef = document.querySelector('.search');
+// function createCountryRef(country) {
+//   const countryRef = document.createElement('h2');
+//   countryRef.classList.add('country');
+//   countryRef.textContent = country;
+//   return countryRef;
+// }
+// function renderFilteredCounries(filteredCounries) {
+//   const countryRefs = filteredCounries.map(createCountryRef);
+//   listRef.append(...countryRefs);
+// }
+// renderFilteredCounries(countries);
+// const handleSearch = (event) => {
+//   console.log(++handlerCallCount);
+//   const search = event.target.value;
+//   const filteredCountries = countries.filter((country) => {
+//     if (search === '') return true;
+//     return country.toLowerCase()
+//       .includes(search.toLowerCase());
+//   });
+//   listRef.innerHTML = '';
+//   renderFilteredCounries(filteredCountries);
+// };
+// searchRef.addEventListener('input', debounce(handleSearch, 1000));
+// 1. Задача. Выведите на экран текущие
+// день, месяц и год в формате 'год-месяц-день'.
+// const now = new Date();
+// const formatDateAndMonth = (num) => String(num).padStart(2, 0);
+// const year = now.getFullYear();
+// const month = now.getMonth() + 1;
+// const date = now.getDate();
+// console.log(`${year}-${formatDateAndMonth(month)}-${formatDateAndMonth(date)}`);
+// console.log(now.toLocaleString(undefined, {
 //   year: 'numeric',
 //   month: '2-digit',
 //   day: '2-digit',
 // }));
 // 2. Выведите на экран количество часов,
 // прошедшее между 1 марта 1988 года и текущим моментом
-
-var last = new Date(1988, 2, 1); // console.log(last.toString());
-
-var ms = now.getTime() - last.getTime();
-var MILLISECONDS_PER_HOURS = 1000 * 60 * 60;
-var MILLISECONDS_PER_DAY = MILLISECONDS_PER_HOURS * 24;
-var hours = Math.round(ms / MILLISECONDS_PER_HOURS);
-console.log(hours); // 3. Создайте инпут, в который пользователь вводит дату своего рождения в формате
+// const last = new Date(1988, 2, 1);
+// // console.log(last.toString());
+// const ms = now.getTime() - last.getTime();
+// const MILLISECONDS_PER_HOURS = 1000 * 60 * 60;
+// const MILLISECONDS_PER_DAY = MILLISECONDS_PER_HOURS * 24;
+// const hours = Math.round(ms / MILLISECONDS_PER_HOURS);
+// console.log(hours);
+// 3. Создайте инпут, в который пользователь вводит дату своего рождения в формате
 // '2014-12-31' (с конкретным годом).
 // По потери фокуса выведите под инпутом сколько дней осталось до его дня рождения.
-
-var inputRef = document.querySelector('.date');
-var resultRef = document.querySelector('.result');
-inputRef.addEventListener('blur', function () {
-  if (!Date.parse(inputRef.value)) return;
-  var birthDate = new Date(inputRef.value);
-  birthDate.setFullYear(birthDate > now ? now.getFullYear() : now.getFullYear() + 1);
-  var ms = birthDate.getTime() - now.getTime();
-  var days = Math.ceil(ms / MILLISECONDS_PER_DAY);
-  resultRef.textContent = days;
-}); // const timerRef = document.querySelector('.timer');
+// const inputRef = document.querySelector('.date');
+// const resultRef = document.querySelector('.result');
+// inputRef.addEventListener('blur', () => {
+//   if (!Date.parse(inputRef.value)) return;
+//   const birthDate = new Date(inputRef.value);
+//   birthDate.setFullYear(birthDate > now ? now.getFullYear() : now.getFullYear() + 1);
+//   const ms = birthDate.getTime() - now.getTime();
+//   const days = Math.ceil(ms / MILLISECONDS_PER_DAY);
+//   resultRef.textContent = days;
+// });
+// const timerRef = document.querySelector('.timer');
 // const btnRef = document.querySelector('.btn');
 // let timer = null;
 // let time = 0;
@@ -195,7 +337,7 @@ inputRef.addEventListener('blur', function () {
 //   }
 //   btnRef.textContent = timer ? 'Stop' : 'Start';
 // });
-},{}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{"./countries":"countries.js","./throttle":"throttle.js"}],"../node_modules/parcel-bundler/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -223,7 +365,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "53379" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "51257" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};

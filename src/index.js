@@ -1,14 +1,100 @@
+/* eslint-disable no-plusplus */
+/* eslint-disable no-undef */
+// Пример 2 - инфинити скрол с троттлингом
+
+import countries from './countries';
+import throttle from './throttle';
+
+let handlerCallCount = 0;
+let startIndex = 0;
+const COUNTRY_COUNT = 10;
+
+const listRef = document.querySelector('.country-list');
+
+function isScrollToBottom() {
+  return window.innerHeight + window.scrollY >= document.body.offsetHeight;
+}
+
+function createCountryRef(country) {
+  const countryRef = document.createElement('h2');
+  countryRef.classList.add('country');
+  countryRef.textContent = country;
+
+  return countryRef;
+}
+
+function renderPartOfCounries() {
+  const partyOfCountries = countries
+    .slice(startIndex, startIndex + COUNTRY_COUNT);
+  const countryRefs = partyOfCountries.map(createCountryRef);
+
+  listRef.append(...countryRefs);
+}
+
+function scrollHandler() {
+  console.log(++handlerCallCount);
+  if (!isScrollToBottom()) return;
+
+  renderPartOfCounries();
+
+  startIndex += COUNTRY_COUNT;
+}
+
+renderPartOfCounries();
+
+window.addEventListener('scroll', throttle(scrollHandler, 200));
+
+// import countries from './countries';
+// import debounce from './debounce';
+
+// let handlerCallCount = 0;
+
+// const listRef = document.querySelector('.country-list');
+// const searchRef = document.querySelector('.search');
+
+// function createCountryRef(country) {
+//   const countryRef = document.createElement('h2');
+//   countryRef.classList.add('country');
+//   countryRef.textContent = country;
+
+//   return countryRef;
+// }
+
+// function renderFilteredCounries(filteredCounries) {
+//   const countryRefs = filteredCounries.map(createCountryRef);
+
+//   listRef.append(...countryRefs);
+// }
+
+// renderFilteredCounries(countries);
+
+// const handleSearch = (event) => {
+//   console.log(++handlerCallCount);
+//   const search = event.target.value;
+//   const filteredCountries = countries.filter((country) => {
+//     if (search === '') return true;
+
+//     return country.toLowerCase()
+//       .includes(search.toLowerCase());
+//   });
+
+//   listRef.innerHTML = '';
+//   renderFilteredCounries(filteredCountries);
+// };
+
+// searchRef.addEventListener('input', debounce(handleSearch, 1000));
+
 // 1. Задача. Выведите на экран текущие
 // день, месяц и год в формате 'год-месяц-день'.
-const now = new Date();
+// const now = new Date();
 
-const formatDateAndMonth = (num) => String(num).padStart(2, 0);
+// const formatDateAndMonth = (num) => String(num).padStart(2, 0);
 
-const year = now.getFullYear();
-const month = now.getMonth() + 1;
-const date = now.getDate();
+// const year = now.getFullYear();
+// const month = now.getMonth() + 1;
+// const date = now.getDate();
 
-console.log(`${year}-${formatDateAndMonth(month)}-${formatDateAndMonth(date)}`);
+// console.log(`${year}-${formatDateAndMonth(month)}-${formatDateAndMonth(date)}`);
 
 // console.log(now.toLocaleString(undefined, {
 //   year: 'numeric',
@@ -19,36 +105,36 @@ console.log(`${year}-${formatDateAndMonth(month)}-${formatDateAndMonth(date)}`);
 // 2. Выведите на экран количество часов,
 // прошедшее между 1 марта 1988 года и текущим моментом
 
-const last = new Date(1988, 2, 1);
-// console.log(last.toString());
-const ms = now.getTime() - last.getTime();
+// const last = new Date(1988, 2, 1);
+// // console.log(last.toString());
+// const ms = now.getTime() - last.getTime();
 
-const MILLISECONDS_PER_HOURS = 1000 * 60 * 60;
-const MILLISECONDS_PER_DAY = MILLISECONDS_PER_HOURS * 24;
+// const MILLISECONDS_PER_HOURS = 1000 * 60 * 60;
+// const MILLISECONDS_PER_DAY = MILLISECONDS_PER_HOURS * 24;
 
-const hours = Math.round(ms / MILLISECONDS_PER_HOURS);
+// const hours = Math.round(ms / MILLISECONDS_PER_HOURS);
 
-console.log(hours);
+// console.log(hours);
 
 // 3. Создайте инпут, в который пользователь вводит дату своего рождения в формате
 // '2014-12-31' (с конкретным годом).
 // По потери фокуса выведите под инпутом сколько дней осталось до его дня рождения.
-const inputRef = document.querySelector('.date');
-const resultRef = document.querySelector('.result');
+// const inputRef = document.querySelector('.date');
+// const resultRef = document.querySelector('.result');
 
-inputRef.addEventListener('blur', () => {
-  if (!Date.parse(inputRef.value)) return;
+// inputRef.addEventListener('blur', () => {
+//   if (!Date.parse(inputRef.value)) return;
 
-  const birthDate = new Date(inputRef.value);
+//   const birthDate = new Date(inputRef.value);
 
-  birthDate.setFullYear(birthDate > now ? now.getFullYear() : now.getFullYear() + 1);
+//   birthDate.setFullYear(birthDate > now ? now.getFullYear() : now.getFullYear() + 1);
 
-  const ms = birthDate.getTime() - now.getTime();
+//   const ms = birthDate.getTime() - now.getTime();
 
-  const days = Math.ceil(ms / MILLISECONDS_PER_DAY);
+//   const days = Math.ceil(ms / MILLISECONDS_PER_DAY);
 
-  resultRef.textContent = days;
-});
+//   resultRef.textContent = days;
+// });
 
 // const timerRef = document.querySelector('.timer');
 // const btnRef = document.querySelector('.btn');
